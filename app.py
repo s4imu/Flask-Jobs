@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -34,6 +34,9 @@ JOBS_POSITIONS = [{
 def home_page():
   return render_template("home.html", jobs_positions=JOBS_POSITIONS)
 
+@app.route("/jobs-positions")
+def jobs_positions():
+  return jsonify(JOBS_POSITIONS)
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=True)

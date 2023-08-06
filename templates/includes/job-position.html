@@ -1,14 +1,18 @@
-
-        <div id="job-card">
-          <h4 id="job-title">
-            {{job.title}}
-          </h4>
-          <div id=job-local>
-            <strong>Local:</strong>
-            {{job.local}}
+        <div class="row border-bottom" id="job-card">
+          <div class="col-11">
+            <h4 id="job-title">
+              {{job.title}}
+            </h4>
+            <div id=job-local>
+              <strong>Local:</strong>
+              {{job.local}}
+            </div>
+            <div id=job-salary>
+              <strong>Salary:</strong>
+              {{job.salary}}
+            </div>
           </div>
-          <div id=job-salary>
-            <strong>Salary:</strong>
-            {{job.salary}}
+          <div class="col-1">
+          <button type="button" class="btn btn-outline-primary">Apply</button>
           </div>
         </div>
