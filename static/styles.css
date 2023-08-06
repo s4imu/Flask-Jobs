@@ -24,3 +24,12 @@ h2 {
 #contact-button {
   text-align: center;
 }
+
+#job-card {
+  margin-bottom: 16px;
+}
+
+#job-title {
+  color: rgb(120, 120, 120);
+  margin-bottom: 4px;
+}
