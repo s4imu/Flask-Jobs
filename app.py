@@ -19,7 +19,14 @@ def jobs_positions():
 @app.route("/job-position/<id>")
 def job_position(id):
   JOB_POSITION = load_job_position(id)
-  return jsonify(JOB_POSITION)
+  if not JOB_POSITION:
+    return "NOT FOUND", 404
+  text = JOB_POSITION["activities"]
+  activities = text.split('\n')
+  activities = [activity for activity in activities if activity.strip()]
+  JOB_POSITION["activities"] = activities
+
+  return render_template("jobpositiondetail.html", job_position=JOB_POSITION)
 
 
 if __name__ == "__main__":
