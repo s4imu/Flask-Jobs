@@ -15,3 +15,16 @@ def load_jobs_position_db():
     for job in result.all():
       jobs_position.append(job._asdict())
     return jobs_position  
+
+def load_job_position(id):
+    with engine.connect() as conn:
+      result = conn.execute(text(
+        f"SELECT * FROM jobs WHERE id = :val"
+      ),
+         {"val": id}                   
+      )
+      job_position = result.mappings().all()
+      if len(job_position) == 0:
+        return None
+      else:
+        return dict(job_position[0])
