@@ -10,18 +10,22 @@
 </head>
 <body>
   {% include 'includes/navbar.html' %}
-    <h3>Title</h3>
-    <p>{{job_position.title}}</p>
-    <h3>Local</h3>
-    <p>{{job_position.locality}}</p>
-    <h3>Salary</h3>
-    <p>{{job_position.currency}} {{job_position.salary}}</p>
-    <h3>Responsabilities</h3>
-    <ul>
-    {% for activity in job_position.activities %}
-      <li>{{activity}}</li>
-    {%endfor%}
-    </ul>
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">Python Careers</h1>
+      <hr>
+          <img class="img-fluid" src={{url_for('static', filename='job_apply.jpg')}} />
+      <br><br>
+      <h3>{{job_position.title}}</h3>
+      <p class="lead">{{job_position.locality}}</p>
+      <h3>Responsabilities</h3>
+      <ul>
+      {% for activity in job_position.activities %}
+        <li>{{activity}}</li>
+      {%endfor%}
+      </ul>
+      <h3>Salary</h3>
+      <p>{{job_position.currency}} {{job_position.salary}}</p>
+    </div>
   {% include 'includes/footer.html' %}
 </body>
 </html>
